@@ -68,7 +68,7 @@ def setup_accelerate(platform: str) -> None:
         f.write("megatron_lm_config: {}\n")
         f.write("mixed_precision: bf16\n")
         f.write("num_machines: 1\n")
-        f.write("num_processes: 8\n")
+        f.write("num_processes: 2\n")
         f.write("rdzv_backend: static\n")
         f.write("same_network: true\n")
         f.write("tpu_name: null\n")
@@ -80,13 +80,13 @@ def setup_accelerate(platform: str) -> None:
 
 def setup_venv(venv_pip):
     subprocess.check_call(
-        f"{venv_pip} install -U torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu124",
+        f"{venv_pip} install -U torch torchvision --index-url https://download.pytorch.org/whl/cu126",
         shell=PLATFORM == "linux",
     )
     if PLATFORM == "windows":
         subprocess.check_call("venv\\Scripts\\python.exe ..\\fix_torch.py")
     subprocess.check_call(
-        f"{venv_pip} install -U xformers==0.0.29.post1 --index-url https://download.pytorch.org/whl/cu124",
+        f"{venv_pip} install -U xformers==0.0.29.post3 --index-url https://download.pytorch.org/whl/cu126",
         shell=PLATFORM == "linux",
     )
     subprocess.check_call(f"{venv_pip} install -U -r requirements.txt", shell=PLATFORM == "linux")
