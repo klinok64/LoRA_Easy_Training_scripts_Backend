@@ -68,7 +68,7 @@ def setup_accelerate(platform: str) -> None:
         f.write("megatron_lm_config: {}\n")
         f.write("mixed_precision: bf16\n")
         f.write("num_machines: 1\n")
-        f.write("num_processes: 1\n")
+        f.write("num_processes: 8\n")
         f.write("rdzv_backend: static\n")
         f.write("same_network: true\n")
         f.write("tpu_name: null\n")
