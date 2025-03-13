@@ -57,7 +57,7 @@ def setup_accelerate(platform: str) -> None:
         f.write("compute_environment: LOCAL_MACHINE\n")
         f.write("deepspeed_config: {}\n")
         f.write("distributed_type: 'MULTI_GPU'\n")
-        f.write("downcase_fp16: 'NO'\n")
+#        f.write("downcase_fp16: 'NO'\n")
         f.write("dynamo_backend: 'NO'\n")
         f.write("fsdp_config: {}\n")
         f.write("gpu_ids: '0,1'\n")
