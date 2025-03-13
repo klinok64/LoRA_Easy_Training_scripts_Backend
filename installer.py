@@ -60,7 +60,7 @@ def setup_accelerate(platform: str) -> None:
         f.write("downcase_fp16: 'NO'\n")
         f.write("dynamo_backend: 'NO'\n")
         f.write("fsdp_config: {}\n")
-        f.write("gpu_ids: 'all'\n")
+        f.write("gpu_ids: '0,1'\n")
         f.write("machine_rank: 0\n")
         f.write("main_process_ip: null\n")
         f.write("main_process_port: null\n")
